@@ -30,7 +30,7 @@ int main()
     int input = 9;
     while(input != 0)
     {
-        cout << "Welche Aufgabe soll ausgefuehrt werden?" << endl;
+        cout << "Welche Aufgabe soll ausgefuehrt werden?" << endl << "Mit 0 wird die Anwendung beendet." << endl;
         cin >> input;
         switch (input) {
             case 0: break;

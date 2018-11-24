@@ -25,6 +25,18 @@ void aufgabe1() {
     tabellenausgabe2D(feld1, 2);
 }
 
+void aufgabe2()
+{
+}
+
+void aufgabe3()
+{
+}
+
+void aufgabe4()
+{
+}
+
 int main()
 {
     int input = 9;
@@ -35,9 +47,9 @@ int main()
         switch (input) {
             case 0: break;
             case 1: aufgabe1(); break;
-            case 2: break; // aufgabe2()
-            case 3: break; // aufgabe3()
-            case 4: break; // aufgabe4()
+            case 2: aufgabe2(); break;
+            case 3: aufgabe3(); break;
+            case 4: aufgabe4(); break;
             default: cout << "Diese Eingabe ist ungueltig. Versuchen sie es nochmal" << endl;
         }
     }

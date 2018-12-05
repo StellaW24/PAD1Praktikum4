@@ -9,9 +9,6 @@
 using namespace std;
 
 
-
-
-
 void aufgabe1() {
 
     //Erstellung des Arrays
@@ -40,7 +37,7 @@ void aufgabe1() {
     //erstellung des Arrays abgeschlossen
     //==============================================================================================
     int a {};
-    cout << "Bitte suchalgorithmus auswählen: BubbleSort = 1, SelectionSort = 2, InsertionSort = 3" << endl;
+    cout << "Bitte Suchalgorithmus auswaehlen: BubbleSort = 1, SelectionSort = 2, InsertionSort = 3" << endl;
     cin >> a;
 
     switch (a) {
@@ -96,7 +93,7 @@ void aufgabe1() {
         cout << "Dauer Insertion Sort: " << ende-start << " Sekunden" << endl;
     }
     default: {
-        cout << "Bitte richtige eingabe eingeben" << endl;
+        cout << "Bitte richtige Eingabe eingeben" << endl;
     }
 
     }
@@ -114,14 +111,24 @@ void aufgabe1() {
 
 void aufgabe2()
 {
+    //InsertionSort mit binärer Suche implementiernen, Laufzeit messen; insertionSort mit vektor, laufzeit messen
 }
 
 void aufgabe3()
 {
+    //Stromanbieter
+    //eingabe des jahresverbrauchs in kwh, liste der stromanbieter in aufsteigender reihenfolge des jahrespreises ausgeben
+    //InsertionSort ODER BubbleSort ODER SelectionSort
+    //cin name des gewählten stromanbieters, mit binärer suche suchen, passende ausgabe
+    //Funktionen: sort, search, calculate
 }
 
 void aufgabe4()
 {
+    //Funktion: bool istPalindrom(string);
+    //was muss geändert werden damit es für satzpalindrome funktioniert?
+    //satzzeichen, großbuchstaben und leerzeichen ignorieren
+    //eingabe vermeintliches palindrom, ausgabe ob ja oder nein.
 }
 
 int main()

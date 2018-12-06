@@ -184,6 +184,51 @@ void aufgabe3()
     //InsertionSort ODER BubbleSort ODER SelectionSort
     //cin name des gewählten stromanbieters, mit binärer suche suchen, passende ausgabe
     //Funktionen: sort, search, calculate
+
+    //liste erstellen
+
+    listPowerProvider list[6];
+    list[0].name = "BEV Energie";
+    list[0].monthly = 17.78;
+    list[0].kWH = 0.2455;
+    list[0].bonus = 185;
+    list[1].name = "EMMA Energie";
+    list[1].monthly = 11.50;
+    list[1].kWH = 0.2489;
+    list[1].bonus = 240;
+    list[2].name = "Vattenfall";
+    list[2].monthly = 12.40;
+    list[2].kWH = 0.2532;
+    list[2].bonus = 275;
+    list[3].name = "enerSwitch";
+    list[3].monthly = 11.85;
+    list[3].kWH = 0.2423;
+    list[3].bonus = 230;
+    list[4].name = "123energie";
+    list[4].monthly = 13.86;
+    list[4].kWH = 0.2441;
+    list[4].bonus = 250;
+    list[5].name = "RHEINPOWER";
+    list[5].monthly = 13.10;
+    list[5].kWH = 0.2477;
+    list[5].bonus = 241;
+
+    double use;
+    string powerProvider;
+    cout << "Stromtarife vergleichen" << endl;
+    cout << "Bitte geben Sie ihren Jahresverbrauch in kWH an:" << endl;
+    cin >> use;
+
+    //sortieren und ausgeben
+    sort(list, use);
+
+    //Auswahl des Stromanbieters
+    cin.ignore();
+    cout << "Geben sie den Namen ihres gewählten Stromanbieters an:" << endl;
+    std :: getline(std:: cin, powerProvider);
+
+    //Suche nach namen des Anbieters und passende Ausgabe
+    //search(powerProvider, list);
 }
 
 void aufgabe4()

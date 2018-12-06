@@ -59,19 +59,58 @@ void sort(struct listPowerProvider list[], double use)
     }
 }
 
-//liste ist nach preis sortiert, nicht nach namen
 void search(string name, double use, struct listPowerProvider list[])
 {
+    //sortieren um nach name suchen zu können, wer auch immer sich das überlegt hat (Selection Sort)
+    for(int i = 0; i < 6; i++)
+    {
+        int smallest = i;
+        struct listPowerProvider min[6];
+        min[i] = list[i];
+        for(int j = i+1; j < 6; j++)
+        {
+            if(list[j].name < min[i].name)
+            {
+                    smallest = j;
+                    min[i] = list[j];
+            }
+        }
+        list[smallest] = list[i];
+        list[i] = min[i];
+    }
+
     //Suche des Namens
     int x;
     bool found = false;
-
-    //Jahrespreis errechnen, ohne Einrechnen des Bonus
-    double calculated = calculate(use, list[x].kWH, list[x].monthly, 0);
+    int left = 0;
+    int right = 5;
+    int mid = (left + right) /2;
+    //binäre Suche
+    while(list[left].name <= list[right].name)
+    {
+        mid = (left + right) /2;
+        if(name < list[mid].name)
+        {
+            right = mid - 1;
+        }
+        else if (name > list[mid].name)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            found = true;
+            x = mid;
+            break;
+        }
+    }
 
     //Ausgabe
     if(found)
     {
+        //Jahrespreis errechnen, ohne Einrechnen des Bonus
+        double calculated = calculate(use, list[x].kWH, list[x].monthly, 0);
+
         cout << "Sie haben den Stromanbieter " << list[x].name << " ausgewählt." << endl;
         cout << "Ihre jährlichen Stromkosten belaufen sich auf " << calculated << "." << endl;
         cout << "Im ersten Jahr erhalten sie einen Bonus von " << list[x].bonus << " für das Wechseln ihres Stromanbieters." << endl;

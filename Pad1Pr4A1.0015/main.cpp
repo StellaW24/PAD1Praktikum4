@@ -168,8 +168,9 @@ void aufgabe3()
     //sort(list, use);
 
     //Auswahl des Stromanbieters
+    cin.ignore();
     cout << "Geben sie den Namen ihres gewählten Stromanbieters an:" << endl;
-    getline(std:: cin, powerProvider);
+    std :: getline(std:: cin, powerProvider);
 
     //Suche nach namen des Anbieters und passende Ausgabe
     //search(powerProvider, list);

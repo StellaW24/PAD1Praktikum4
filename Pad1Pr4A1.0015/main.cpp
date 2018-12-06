@@ -1,4 +1,7 @@
 #include "aufgabe1.h"
+#include <aufgabe2.h>
+#include <aufgabe3.h>
+#include <aufgabe4.h>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,9 +10,6 @@
 #include <string>
 
 using namespace std;
-
-
-
 
 
 void aufgabe1() {
@@ -40,7 +40,7 @@ void aufgabe1() {
     //erstellung des Arrays abgeschlossen
     //==============================================================================================
     int a {};
-    cout << "Bitte suchalgorithmus auswählen: BubbleSort = 1, SelectionSort = 2, InsertionSort = 3" << endl;
+    cout << "Bitte Suchalgorithmus auswaehlen: BubbleSort = 1, SelectionSort = 2, InsertionSort = 3" << endl;
     cin >> a;
 
     switch (a) {
@@ -96,7 +96,7 @@ void aufgabe1() {
         cout << "Dauer Insertion Sort: " << ende-start << " Sekunden" << endl;
     }
     default: {
-        cout << "Bitte richtige eingabe eingeben" << endl;
+        cout << "Bitte richtige Eingabe eingeben" << endl;
     }
 
     }
@@ -114,14 +114,80 @@ void aufgabe1() {
 
 void aufgabe2()
 {
+    //InsertionSort mit binärer Suche implementiernen, Laufzeit messen; insertionSort mit vektor, laufzeit messen
 }
 
 void aufgabe3()
 {
+    //Stromanbieter
+    //eingabe des jahresverbrauchs in kwh, liste der stromanbieter in aufsteigender reihenfolge des jahrespreises ausgeben
+    //InsertionSort ODER BubbleSort ODER SelectionSort
+    //cin name des gewählten stromanbieters, mit binärer suche suchen, passende ausgabe
+    //Funktionen: sort, search, calculate
+
+    //liste erstellen
+    struct listPowerProvider {
+        string name;
+        double monthly;
+        double kWH;
+        int bonus;
+    };
+    struct listPowerProvider list[6];
+    list[0].name = "BEV Energie";
+    list[0].monthly = 17.78;
+    list[0].kWH = 0.2455;
+    list[0].bonus = 185;
+    list[1].name = "EMMA Energie";
+    list[1].monthly = 11.50;
+    list[1].kWH = 0.2489;
+    list[1].bonus = 240;
+    list[2].name = "Vattenfall";
+    list[2].monthly = 12.40;
+    list[2].kWH = 0.2532;
+    list[2].bonus = 275;
+    list[3].name = "enerSwitch";
+    list[3].monthly = 11.85;
+    list[3].kWH = 0.2423;
+    list[3].bonus = 230;
+    list[4].name = "123energie";
+    list[4].monthly = 13.86;
+    list[4].kWH = 0.2441;
+    list[4].bonus = 250;
+    list[5].name = "RHEINPOWER";
+    list[5].monthly = 13.10;
+    list[5].kWH = 0.2477;
+    list[5].bonus = 241;
+
+    double use;
+    string powerProvider;
+    cout << "Stromtarife vergleichen" << endl;
+    cout << "Bitte geben Sie ihren Jahresverbrauch in kWH an:" << endl;
+    cin >> use;
+
+    //sortieren und ausgeben
+    //sort(list, use);
+
+    //Auswahl des Stromanbieters
+    cout << "Geben sie den Namen ihres gewählten Stromanbieters an:" << endl;
+    getline(std:: cin, powerProvider);
+
+    //Suche nach namen des Anbieters und passende Ausgabe
+    //search(powerProvider, list);
+
+    //test calculate
+    double monthly = list[4].monthly;
+    double kHW = list[4].kWH;
+    int bonus = list[4].bonus;
+     cout << calculate(use, kHW, use, bonus) << endl;
+
 }
 
 void aufgabe4()
 {
+    //Funktion: bool istPalindrom(string);
+    //was muss geändert werden damit es für satzpalindrome funktioniert?
+    //satzzeichen, großbuchstaben und leerzeichen ignorieren
+    //eingabe vermeintliches palindrom, ausgabe ob ja oder nein.
 }
 
 int main()

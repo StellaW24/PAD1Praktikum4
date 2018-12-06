@@ -107,7 +107,7 @@ void aufgabe2()
     srand(time(NULL));
     int* array {0};
     int k {};
-    cout << "Bitte geben Sie die gewuenschte groesse an"<< endl;
+    cout << "Bitte geben Sie die gewuenschte Groesse an"<< endl;
     cin >> k;
     //Erstellung des Arrays mit der größe von k
     array = new int[k];
@@ -122,18 +122,17 @@ void aufgabe2()
     }
     //erstellen des Vektors abgeschlossen
     int a {};
-    cout << "Bitte algorithmus auswaehlen:_ array und insertion sort = 1, vektor = 2" << endl;
+    cout << "Bitte Algorithmus auswaehlen: Insertion Sort mit Array = 1 oder Vektor = 2" << endl;
     cin >> a;
 
     if(a == 1) {
+        /*
         // Sortieren ueber Insertion Sort
         clock_t start = clock();
         for (int i = 1; i < k; i++) { // Durchläufe
             int tmp = array[i];
-            int j = i - 1;
-            while (j >= 0 && tmp < array[j]) { // verschieben größerer Elemente
+            for(int j = i - 1; j >= 0 && tmp < array[j]; j--) { // verschieben größerer Elemente
                 array[j + 1] = array[j];
-                j--;
             }
             //Binäre Suche
             int min = array[0];
@@ -142,7 +141,7 @@ void aufgabe2()
             while(min <= max) {
                 guess = (int)(((max + min) / 2) + 0.5);
                 if(tmp == array[guess]) {
-                    array[j + 1] = tmp;
+                    array[] = tmp;
                 }
                 else if(array[guess] < tmp) {
                     min = guess + 1;
@@ -152,29 +151,97 @@ void aufgabe2()
                 }
             }
         }
+
         clock_t ende= clock();
         double elapsedTime = double(ende - start) / CLOCKS_PER_SEC;
         //Ausgabe der Zeit
         cout << "Dauer InsertionSort: " << elapsedTime << " Sekunden" << endl;
-    }
+        */
 
-    else if(a == 2) {
-        //start des Insertion Sort
         clock_t start = clock();
-        for (int i = 1; i < randomNumberVec.size(); i++) { // Durchläufe
-            int tmp = randomNumberVec.at(i);
-            int j = i - 1;
-            while (j >= 0 && tmp < randomNumberVec.at(j)) { // verschieben größerer Elemente
-                randomNumberVec.at(j + 1) = randomNumberVec.at(j);
-                j--;
+        for (int i = 1; i < k; i++) { // Durchläufe
+            int tmp = array[i];
+            int min = 0;
+            int max = i;
+            int mid;
+            while(min <= max)
+            {
+                mid = ((max + min) /2) -1;
+                if(tmp < array[mid])
+                {
+                    max = mid - 1;
+                }
+                else if (tmp > array[mid])
+                {
+                    min = mid + 1;
+                }
+                else
+                {
+                    tmp = mid;
+                    break;
+                }
             }
-            randomNumberVec.at(j + 1) = tmp; // einfügen an richtiger Stelle
+            array[i] = array[tmp];
         }
         clock_t ende= clock();
         double elapsedTime = double(ende - start) / CLOCKS_PER_SEC;
         //Ausgabe der Zeit
         cout << " Dauer InsertionSort: " << elapsedTime << " Sekunden" << endl;
+
+        //Ausgabe um zu sehen ob das Array sortiert ist
+        if(k < 21)
+        {
+            for(int i = 1; i < k; i++)
+            {
+                cout << array[i] << endl;
+            }
+        }
     }
+
+    else if(a == 2) {
+        //start des Insertion Sort
+        clock_t start = clock();
+        for (int i = 1; i < int(randomNumberVec.size()); i++) { // Durchläufe
+            int tmp = randomNumberVec.at(i);
+            int min = 0;
+            int max = i - 1;
+            int mid;
+            while(min <= max)
+            {
+                mid = (max + min) /2;
+                if(tmp < randomNumberVec.at(mid))
+                {
+                    max = mid - 1;
+                }
+                else if (tmp > randomNumberVec.at(mid))
+                {
+                    min = mid + 1;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            randomNumberVec.at(i) = tmp;
+        }
+        clock_t ende= clock();
+        double elapsedTime = double(ende - start) / CLOCKS_PER_SEC;
+        //Ausgabe der Zeit
+        cout << " Dauer InsertionSort: " << elapsedTime << " Sekunden" << endl;
+
+        //Ausgabe um zu sehen ob der Vektor sortiert ist
+        if(int(randomNumberVec.size()) < 21)
+        {
+            for(int i = 1; i < k; i++)
+            {
+                cout << randomNumberVec.at(i) << endl;
+            }
+        }
+    }
+
+    //löschen um speicherplatz freizugeben
+    delete [] array;
+    array = NULL;
 }
 
 void aufgabe3()

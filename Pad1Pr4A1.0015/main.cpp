@@ -126,13 +126,8 @@ void aufgabe3()
     //Funktionen: sort, search, calculate
 
     //liste erstellen
-    struct listPowerProvider {
-        string name;
-        double monthly;
-        double kWH;
-        int bonus;
-    };
-    struct listPowerProvider list[6];
+
+    listPowerProvider list[6];
     list[0].name = "BEV Energie";
     list[0].monthly = 17.78;
     list[0].kWH = 0.2455;
@@ -165,7 +160,7 @@ void aufgabe3()
     cin >> use;
 
     //sortieren und ausgeben
-    //sort(list, use);
+    sort(list, use);
 
     //Auswahl des Stromanbieters
     cin.ignore();

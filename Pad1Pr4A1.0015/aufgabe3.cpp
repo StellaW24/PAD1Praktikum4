@@ -1,13 +1,8 @@
 #include <iostream>
+#include <aufgabe3.h>
 
 using namespace std;
 
-struct listPowerProvider {
-    string name;
-    double monthly;
-    double kWH;
-    int bonus;
-}static list[6];
 
 double calculate(double use, double kwh, double monthly, int bonus)
 {
@@ -18,7 +13,7 @@ double calculate(double use, double kwh, double monthly, int bonus)
     return yearly;
 }
 
-void sort(struct listPowerProvider list[], double use)
+void sort(listPowerProvider list[], double use)
 {
     //struct für die sortierte Liste die ausgegeben wird
     struct sortedList {
@@ -59,24 +54,33 @@ void sort(struct listPowerProvider list[], double use)
     }
 }
 
-void search(string name, double use, struct listPowerProvider list[])
+void search(string name, double use, listPowerProvider list[])
 {
     //sortieren um nach name suchen zu können, wer auch immer sich das überlegt hat (Selection Sort)
     for(int i = 0; i < 6; i++)
     {
         int smallest = i;
-        struct listPowerProvider min[6];
+        listPowerProvider min[6];
         min[i] = list[i];
         for(int j = i+1; j < 6; j++)
         {
             if(list[j].name < min[i].name)
             {
                     smallest = j;
-                    min[i] = list[j];
+                    min[i].bonus = list[j].bonus;
+                    min[i].kWH = list[i].kWH;
+                    min[i].monthly = list[i].monthly;
+                    min[i].name = list[i].name;
             }
         }
-        list[smallest] = list[i];
-        list[i] = min[i];
+        list[smallest].bonus = list[i].bonus;
+        list[smallest].kWH = list[i].kWH;
+        list[smallest].monthly = list[i].monthly;
+        list[smallest].name = list[i].name;
+        list[i].bonus = min[i].bonus;
+        list[i].kWH = min[i].kWH;
+        list[i].monthly = min[i].monthly;
+        list[i].name = min[i].name;
     }
 
     //Suche des Namens

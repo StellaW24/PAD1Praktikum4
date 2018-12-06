@@ -164,24 +164,23 @@ void aufgabe2()
             int min = 0;
             int max = i;
             int mid;
-            while(min <= max)
+            while(min < max)
             {
-                mid = ((max + min) /2) -1;
-                if(tmp < array[mid])
+                mid = (max + min) /2;
+                if(tmp <= array[mid])
                 {
-                    max = mid - 1;
-                }
-                else if (tmp > array[mid])
-                {
-                    min = mid + 1;
+                    max = mid;
                 }
                 else
                 {
-                    tmp = mid;
-                    break;
+                    min = mid + 1;
                 }
             }
-            array[i] = array[tmp];
+            for (int j = i; j > max; j--)
+            {
+                array[j] = array[j - 1];
+            }
+            array[max] = tmp;
         }
         clock_t ende= clock();
         double elapsedTime = double(ende - start) / CLOCKS_PER_SEC;
@@ -204,25 +203,25 @@ void aufgabe2()
         for (int i = 1; i < int(randomNumberVec.size()); i++) { // Durchläufe
             int tmp = randomNumberVec.at(i);
             int min = 0;
-            int max = i - 1;
+            int max = i;
             int mid;
-            while(min <= max)
+            while(min < max)
             {
                 mid = (max + min) /2;
-                if(tmp < randomNumberVec.at(mid))
+                if(tmp <= randomNumberVec.at(mid))
                 {
-                    max = mid - 1;
-                }
-                else if (tmp > randomNumberVec.at(mid))
-                {
-                    min = mid + 1;
+                    max = mid;
                 }
                 else
                 {
-                    break;
+                    min = mid + 1;
                 }
             }
-            randomNumberVec.at(i) = tmp;
+            for (int j = i; j > max; j--)
+            {
+                randomNumberVec.at(j) = randomNumberVec.at(j - 1);
+            }
+            randomNumberVec.at(max) = tmp;
         }
         clock_t ende= clock();
         double elapsedTime = double(ende - start) / CLOCKS_PER_SEC;

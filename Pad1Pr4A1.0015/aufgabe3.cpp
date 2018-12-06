@@ -41,10 +41,10 @@ void sort(struct listPowerProvider list[], double use)
         min[i] = sorted[i];
         for(int j = i+1; j < 6; j++)
         {
-            if(sorted[j].yearly < min[j].yearly)
+            if(sorted[j].yearly < min[i].yearly)
             {
                     smallest = j;
-                    min[j] = sorted[j];
+                    min[i] = sorted[j];
             }
         }
         sorted[smallest] = sorted[i];
@@ -52,9 +52,10 @@ void sort(struct listPowerProvider list[], double use)
     }
 
     //Liste ausgeben
+    cout << "Name" << " | " << "Kosten im ersten Jahr" << endl;
     for(int i = 0; i < 6; i++)
     {
-
+        cout << sorted[i].name << " | " << sorted[i].yearly << endl;
     }
 }
 
@@ -82,6 +83,7 @@ void search(string name, double use, struct listPowerProvider list[])
     }
 }
 
+/*
 //versuch ob das hier funktioniert, soll nicht hier sein am ende
 void aufgabe3()
 {
@@ -146,3 +148,4 @@ void aufgabe3()
     int bonus = list[4].bonus;
      cout << calculate(use, kHW, use, bonus) << endl;
 }
+*/

@@ -173,13 +173,6 @@ void aufgabe3()
 
     //Suche nach namen des Anbieters und passende Ausgabe
     //search(powerProvider, list);
-
-    //test calculate
-    double monthly = list[4].monthly;
-    double kHW = list[4].kWH;
-    int bonus = list[4].bonus;
-     cout << calculate(use, kHW, use, bonus) << endl;
-
 }
 
 void aufgabe4()

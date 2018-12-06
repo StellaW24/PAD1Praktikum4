@@ -126,38 +126,6 @@ void aufgabe2()
     cin >> a;
 
     if(a == 1) {
-        /*
-        // Sortieren ueber Insertion Sort
-        clock_t start = clock();
-        for (int i = 1; i < k; i++) { // Durchläufe
-            int tmp = array[i];
-            for(int j = i - 1; j >= 0 && tmp < array[j]; j--) { // verschieben größerer Elemente
-                array[j + 1] = array[j];
-            }
-            //Binäre Suche
-            int min = array[0];
-            int max = (sizeof (array) / sizeof (*array)-1); //letzter Index
-            int guess {};
-            while(min <= max) {
-                guess = (int)(((max + min) / 2) + 0.5);
-                if(tmp == array[guess]) {
-                    array[] = tmp;
-                }
-                else if(array[guess] < tmp) {
-                    min = guess + 1;
-                }
-                else {
-                    max = guess - 1;
-                }
-            }
-        }
-
-        clock_t ende= clock();
-        double elapsedTime = double(ende - start) / CLOCKS_PER_SEC;
-        //Ausgabe der Zeit
-        cout << "Dauer InsertionSort: " << elapsedTime << " Sekunden" << endl;
-        */
-
         clock_t start = clock();
         for (int i = 1; i < k; i++) { // Durchläufe
             int tmp = array[i];

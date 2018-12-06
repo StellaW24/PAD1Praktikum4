@@ -18,4 +18,4 @@ double calculate(double use, double kwh, double monthly, int bonus);
 
 void sort(listPowerProvider list[], double use);
 
-void search(string name, struct listPowerProvider list[]);
+void search(listPowerProvider list[], string name, double use);

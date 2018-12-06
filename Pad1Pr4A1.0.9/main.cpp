@@ -224,11 +224,11 @@ void aufgabe3()
 
     //Auswahl des Stromanbieters
     cin.ignore();
-    cout << "Geben sie den Namen ihres gewählten Stromanbieters an:" << endl;
+    cout << "Geben sie den Namen ihres gewaehlten Stromanbieters an:" << endl;
     std :: getline(std:: cin, powerProvider);
 
     //Suche nach namen des Anbieters und passende Ausgabe
-    //search(powerProvider, list);
+    search(list, powerProvider, use);
 }
 
 void aufgabe4()
@@ -255,15 +255,14 @@ int main()
     int input = 9;
     while(input != 0)
     {
-        cout << endl;
         cout << "Welche Aufgabe soll ausgefuehrt werden?" << endl << "Mit 0 wird die Anwendung beendet." << endl;
         cin >> input;
         switch (input) {
         case 0: break;
-        case 1: aufgabe1(); break;
-        case 2: aufgabe2(); break;
-        case 3: aufgabe3(); break;
-        case 4: aufgabe4(); break;
+        case 1: aufgabe1(); cout << endl; break;
+        case 2: aufgabe2(); cout << endl; break;
+        case 3: aufgabe3(); cout << endl; break;
+        case 4: aufgabe4(); cout << endl; break;
         default: cout << "Diese Eingabe ist ungueltig. Versuchen sie es nochmal" << endl;
         }
     }
